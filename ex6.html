@@ -19,8 +19,17 @@
     <script>
         
         // add code here
-        
-        
+        const selElem = document.getElementById('select_item');
+        console.log(selElem);
+        selElem.addEventListener("change", function(){
+            const selVal = selElem.value;
+
+            const liElem = document.createElement("li");
+            liElem.innerText = selVal;
+            const ulElem = document.getElementsByTagName("ul")[0];
+            ulElem.appendChild(liElem);
+        })
+
     </script>
 
     
