@@ -31,7 +31,8 @@
             if (idVal.length > 10){
                 errorMessages += "ID cannot exceed 10 characters.\n";
             }
-            if (ageVal > 10 || ageVal < 40){
+            console.log(ageVal);
+            if (ageVal < 10 || ageVal > 40){
                 errorMessages += "Age must be between 10 and 40.\n";
             }
             if (emailVal.indexOf("@") == -1){ //if cannot find will return -1
