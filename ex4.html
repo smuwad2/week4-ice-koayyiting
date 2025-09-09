@@ -11,20 +11,46 @@
 
    <input type="text" id="inputText">
    <!-- add a button here for adding new item -->
-
+   <button id="addBtn" onclick="addItem()">Enter</button>
    <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
-      <li>Jello</li>
-      <li>Spinach</li>
-      <li>Rice</li>
-      <li>Birthday Cake</li>
-      <li>Candles</li>
+      <li>Notebook<button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Jello<button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Spinach<button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Rice<button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Birthday Cake<button onclick="removeItem(this.parentNode)">delete</button></li>
+      <li>Candles<button onclick="removeItem(this.parentNode)">delete</button></li>
    </ul>
 
    <script>
 
       // add code here
+      function addItem(){
+         // get the input value
+         const inputText = document.getElementById('inputText').value;
 
+         // create li element
+         const liElem = document.createElement("li"); 
+
+         // set the input text to li element
+         liElem.innerText = inputText; 
+
+         // create delete button
+         const btnElem = document.createElement("button");
+         btnElem.innerText = "delete";
+         btnElem.addEventListener("click", function() { //only click event happened the function then be called
+            removeItem(this.parentNode);
+         });
+         liElem.appendChild(btnElem);
+
+         // build the DOM Tree
+         const ulElem = document.getElementsByTagName('ul')[0]; // the first ul of the entire code (listoful[0])
+         ulElem.appendChild(liElem);
+      }
+
+      function removeItem(obj){
+         obj.remove();
+      }
+      
    </script>
 
 </body>

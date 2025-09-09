@@ -3,14 +3,20 @@
 <head>
     <style>
 
-        #div1 {
+        #square {
             width: 200px;
             height: 200px;
             background-color: goldenrod;
         }
 
         /* add CSS code here */
-        
+        #circle {
+            width: 200px;
+            height: 200px;
+            background-color: goldenrod;
+            border-radius: 100px;
+        }
+
     </style>
 
     
@@ -19,13 +25,27 @@
     
     <h2>Changing HTML Attribute Value</h2>
 
-    <div id="div1"></div>
+    <div id="square"></div>
 
     <button onclick="changeShape()">Make a change!</button>
 
     <script>
         var square=true;
-       // add code here
+        // add code here
+        function changeShape(){
+            let divElem = document.getElementById("square");
+            if (square){
+                divElem.style.borderRadius="50%";
+            }else{
+                divElem.style.borderRadius="0";
+            }
+            // if (square){
+            //     divElem.className = 'circle';
+            // }else{
+            //     divElem.className = 'square';
+            // }
+            square=!square;
+        }
         
     </script>
 
